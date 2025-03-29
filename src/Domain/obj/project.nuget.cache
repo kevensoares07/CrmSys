@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "DdrrY9ommj0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\franc\\.nuget\\packages\\microsoft.openapi\\1.6.23\\microsoft.openapi.1.6.23.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\8.0.0\\swashbuckle.aspnetcore.swagger.8.0.0.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\8.0.0\\swashbuckle.aspnetcore.swaggergen.8.0.0.nupkg.sha512",
+    "C:\\Users\\franc\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\8.0.0\\swashbuckle.aspnetcore.swaggerui.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
