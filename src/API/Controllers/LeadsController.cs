@@ -25,9 +25,13 @@ public class LeadsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllLeads()
+    public async Task<IActionResult> GetAllLeads([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)
     {
         var leads = await _mediator.Send(new GetAllLeadsQuery());
+        if (startDate.HasValue && endDate.HasValue)
+        {
+            leads = leads.Where(l => l.CreatedAt >= startDate.Value && l.CreatedAt <= endDate.Value);
+        }
         return Ok(leads);
     }
 
@@ -45,5 +49,18 @@ public class LeadsController : ControllerBase
         var updatedLead = await _mediator.Send(command);
         return Ok(updatedLead);
     }
-    
+
+    [HttpGet("stats")]
+    public async Task<IActionResult> GetLeadsStats([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
+    {
+        var leads = await _mediator.Send(new GetAllLeadsQuery());
+        var filteredLeads = leads.Where(l => l.CreatedAt >= startDate && l.CreatedAt <= endDate);
+        var stats = new
+        {
+            TotalLeads = filteredLeads.Count(),
+            TotalValue = filteredLeads.Sum(l => l.Value),
+            Conversions = filteredLeads.Count(l => l.Status == "Fechado – Ganhou")
+        };
+        return Ok(stats);
+    }
 }

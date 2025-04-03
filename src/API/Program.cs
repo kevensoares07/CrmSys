@@ -4,7 +4,8 @@ using Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Domain.Interfaces;
-using System.Reflection; // Para usar Assembly
+using System.Reflection;
+using Domain.Repositories; // Para usar Assembly
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +31,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://127.0.0.1:5500") // Origem do frontend
+        policy.WithOrigins("http://localhost:3000") 
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
