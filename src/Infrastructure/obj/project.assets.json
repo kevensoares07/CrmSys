@@ -4920,11 +4920,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\franc\\CRMBackendNew\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\franc\\CRMBackendNew\\src\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\franc\\CRMBackendNew\\src\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4939,11 +4939,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\franc\\CRMBackendNew\\src\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\franc\\CRMBackendNew\\src\\Application\\Application.csproj"
+            "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Application\\Application.csproj"
             },
-            "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj"
+            "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\Domain.csproj"
             }
           }
         }

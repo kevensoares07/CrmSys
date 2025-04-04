@@ -2,6 +2,9 @@ using Domain.Entities;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories;
 
@@ -24,5 +27,17 @@ public class ContactRepository : IContactRepository
     public async Task<IEnumerable<Contact>> GetAllAsync()
     {
         return await _context.Contacts.ToListAsync();
+    }
+
+    public async Task<Contact> DeleteContactAsync(int requestId)
+    {
+        var contact = await _context.Contacts.FindAsync(requestId);
+        if (contact == null)
+        {
+            return null;
+        }
+        _context.Contacts.Remove(contact);
+        await _context.SaveChangesAsync();
+        return contact;
     }
 }

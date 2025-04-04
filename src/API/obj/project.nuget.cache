@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zN/lHL+C/ek=",
+  "dgSpecHash": "G1RYCz+e4n0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\franc\\CRMBackendNew\\src\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\franc\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\franc\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

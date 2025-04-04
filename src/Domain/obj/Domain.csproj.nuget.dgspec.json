@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj": {}
+    "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj": {
+    "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\franc\\CRMBackendNew\\src\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\franc\\RiderProjects\\CrmSys\\src\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config"
