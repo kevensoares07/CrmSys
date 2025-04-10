@@ -4,8 +4,6 @@ using Infrastructure.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Domain.Interfaces;
-using System.Reflection;
-using Domain.Repositories; // Para usar Assembly
 
 var builder = WebApplication.CreateBuilder(args);
 

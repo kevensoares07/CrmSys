@@ -23,4 +23,5 @@ public class Lead
     public string NoPurchaseReason { get; set; } = string.Empty;
     public string FollowupFuture { get; set; } = string.Empty;
     public string Messages { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; }
 }

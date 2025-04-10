@@ -4,33 +4,37 @@ using Domain.Entities;
 using Domain.Interfaces;
 using MediatR;
 
-namespace Application.Handlers;
-
-public class CreateContactHandler : IRequestHandler<CreateContactCommand, ContactDto>
+public class CreateContactCommandHandler : IRequestHandler<CreateContactCommand, ContactDto>
 {
     private readonly IContactRepository _contactRepository;
 
-    public CreateContactHandler(IContactRepository contactRepository)
+    public CreateContactCommandHandler(IContactRepository contactRepository)
     {
-        _contactRepository = contactRepository;
+        _contactRepository = contactRepository ?? throw new ArgumentNullException(nameof(contactRepository));
     }
 
     public async Task<ContactDto> Handle(CreateContactCommand request, CancellationToken cancellationToken)
     {
+        if (request == null || string.IsNullOrEmpty(request.Name))
+            throw new ArgumentException("Dados do contato inválidos.");
+
         var contact = new Contact
         {
             Name = request.Name,
             Email = request.Email,
-            Phone = request.Phone
+            Phone = request.Phone,
+            CreatedAt = DateTime.UtcNow
         };
 
-        var createdContact = await _contactRepository.AddAsync(contact);
+        await _contactRepository.AddAsync(contact);
+
         return new ContactDto
         {
-            Id = createdContact.Id,
-            Name = createdContact.Name,
-            Email = createdContact.Email,
-            Phone = createdContact.Phone
+            Id = contact.Id,
+            Name = contact.Name,
+            Email = contact.Email,
+            Phone = contact.Phone,
+            CreatedAt = contact.CreatedAt
         };
     }
 }

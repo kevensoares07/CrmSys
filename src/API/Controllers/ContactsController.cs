@@ -1,6 +1,5 @@
 using Application.Commands;
 using Application.Queries;
-using Application.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,60 +22,24 @@ public class ContactsController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateContact([FromBody] CreateContactCommand command)
     {
-        if (command == null)
-        {
-            return BadRequest("Dados do contato não fornecidos.");
-        }
-
-        try
-        {
-            var contact = await _mediator.Send(command);
-            return Ok(contact);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Erro ao criar contato: {ex.Message}");
-        }
+        return Ok(await _mediator.Send(command));
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAllContacts([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)
     {
-        try
+        var contacts = await _mediator.Send(new GetAllContactsQuery());
+        if (startDate.HasValue && endDate.HasValue)
         {
-            var query = new GetAllContactsQuery();
-            var contacts = await _mediator.Send(query);
-
-            if (startDate.HasValue && endDate.HasValue)
-            {
-                if (startDate > endDate)
-                {
-                    return BadRequest("A data de início não pode ser maior que a data de fim.");
-                }
-
-                contacts = contacts.Where(c => c.CreatedAt >= startDate.Value && c.CreatedAt <= endDate.Value).ToList();
-            }
-
-            return Ok(contacts);
+            contacts = contacts.Where(c => c.CreatedAt >= startDate.Value && c.CreatedAt <= endDate.Value).ToList();
         }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Erro ao buscar contatos: {ex.Message}");
-        }
+        return Ok(contacts);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteContact(int id)
     {
-        try
-        {
-            var command = new DeleteContactCommand { Id = id };
-            await _mediator.Send(command);
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, $"Erro ao deletar contato: {ex.Message}");
-        }
+        await _mediator.Send(new DeleteContactCommand { Id = id });
+        return NoContent();
     }
 }

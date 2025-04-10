@@ -4,8 +4,6 @@ using Domain.Entities;
 using Domain.Interfaces;
 using MediatR;
 
-namespace Application.Handlers;
-
 public class CreateLeadHandler : IRequestHandler<CreateLeadCommand, LeadDto>
 {
     private readonly ILeadRepository _leadRepository;
@@ -17,7 +15,7 @@ public class CreateLeadHandler : IRequestHandler<CreateLeadCommand, LeadDto>
 
     public async Task<LeadDto> Handle(CreateLeadCommand request, CancellationToken cancellationToken)
     {
-        if (string.IsNullOrEmpty(request.Name) || request.Value <= 0)
+        if (request == null || string.IsNullOrEmpty(request.Name) || request.Value <= 0)
             throw new ArgumentException("Nome e valor são obrigatórios.");
 
         var lead = new Lead
@@ -27,7 +25,8 @@ public class CreateLeadHandler : IRequestHandler<CreateLeadCommand, LeadDto>
             Channel = request.Channel,
             Product = request.Product,
             Urgency = request.Urgency,
-            Status = request.Status ?? "Prospecção"
+            Status = request.Status,
+            CreatedAt = DateTime.UtcNow
         };
 
         var createdLead = await _leadRepository.AddAsync(lead);
@@ -45,7 +44,8 @@ public class CreateLeadHandler : IRequestHandler<CreateLeadCommand, LeadDto>
             Payment = createdLead.Payment,
             PurchaseReason = createdLead.PurchaseReason,
             NoPurchaseReason = createdLead.NoPurchaseReason,
-            Messages = createdLead.Messages
+            Messages = createdLead.Messages,
+            CreatedAt = createdLead.CreatedAt
         };
     }
 }

@@ -25,4 +25,17 @@ public class ContactRepository : IContactRepository
     {
         return await _context.Contacts.ToListAsync();
     }
+
+    public async Task DeleteAsync(Contact contact)
+    {
+        _context.Contacts.Remove(contact);
+        await _context.SaveChangesAsync();
+    }
+
+
+    public async Task<Contact?> GetByIdAsync(int requestId)
+    {
+        return await _context.Contacts.FindAsync(requestId);
+    }
+
 }

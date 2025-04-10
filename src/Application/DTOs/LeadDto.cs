@@ -16,4 +16,5 @@ public class LeadDto
     public string PurchaseReason { get; set; } = string.Empty;
     public string NoPurchaseReason { get; set; } = string.Empty;
     public string Messages { get; set; } = string.Empty;
+    public DateTime CreatedAt { get; set; }
 }
